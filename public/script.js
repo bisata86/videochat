@@ -1,4 +1,4 @@
-const socket = io("/");
+const socket = io("videochat-xvmd.onrender.com");
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
 const showChat = document.querySelector("#showChat");
