@@ -1,4 +1,4 @@
-const socket = io("videochat-xvmd.onrender.com");
+const socket = io("https://videochat-xvmd.onrender.com");
 const videoGrid = document.getElementById("video-grid");
 const myVideo = document.createElement("video");
 const showChat = document.querySelector("#showChat");
@@ -22,7 +22,7 @@ showChat.addEventListener("click", () => {
 const user = prompt("Enter your name");
 
 var peer = new Peer({
-  host: 'https://videochat-xvmd.onrender.com',
+  host: 'videochat-xvmd.onrender.com',
   //host: '127.0.0.1',
   //port: 3030,
   path: '/peerjs',
