@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
+    <script>
+      const ROOM_ID = "3";
+    </script>
+  </head>
+  <body onload="myFunction()">
+    <div class="header">
+      <div class="logo">
+        <div class="header__back">
+          <i class="fas fa-angle-left"></i>
+        </div>
+        <h3></h2>
+      </div>
+    </div>  
+    <div class="main">  
+    <div class="main__left">
+      <div class="videos__group">
+        <div id="video-grid">
+
+        </div>
+      </div>
+      <div class="options">
+        <div class="options__left">
+         
+        </div>
+        <div class="options__right">
+          <div id="inviteButton" class="options__button">
+            <i class="fas fa-user-plus"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main__right">
+      <div class="main__chat_window">
+          <div class="messages">
+
+          </div>
+      </div>
+      <div class="main__message_container">
+        <input id="chat_message" type="text" autocomplete="off" placeholder="Type message here...">
+        <div id="send" class="options__button">
+          <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+     <script type="text/javascript">
+
+      function myFunction() {
+        console.log("ddddddddddddddd")
+
+              socket.on("users", (data) => {
+              console.log(data)
+            });
+      }
+
+      const socket = io("http://localhost:3030/");
+      const showChat = document.querySelector("#inviteButton");
+
+      showChat.addEventListener("click", () => {
+        console.log('w')
+        socket.emit("ready", {name:'user'});
+      });
+
+      const user = 'test'//rompt("Enter your name");
+
+
+      socket.on("users", (data) => {
+        console.log(data)
+      });
+
+    </script>
+</html>
